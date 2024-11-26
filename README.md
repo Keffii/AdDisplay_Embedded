@@ -1,4 +1,4 @@
-Lucas Jagerskog\n
+Lucas Jagerskog<br/>
 Victor Erixon
 Patrik Norstrom
 Emma Jiredal
