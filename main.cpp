@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "lcd.h"
+#include "CustomerList.h"
 
 // https://wokwi.com/projects/383283130065573889
 
@@ -27,7 +28,14 @@ int main(void){
     lcd.Initialize(); // Initialize the LCD
     lcd.Clear();      // Clear the LCD
 
-    lcd.WriteText((char *)"Hej hej");
+    CustomerList cl;
+    cl.addCustomer(5000, "En god bilaffär (för Harry!)");
+    cl.addCustomer(3000, "Skynda innan Mårten ätit alla pajer");
+    cl.addCustomer(1500, "Bygga svart? Ring Petter");
+    cl.addCustomer(4000, "Mysterier? Ring Långben");
+    lcd.WriteText(cl.getMessage(0));  // getMessage(index of customers)
+    // lcd.GoTo(0, 1); // Go to the second line
+    // lcd.WriteText((char *)"Skynda innan Mårten ätit alla pajer");
 
     // //Sätt till INPUT_PULLUP
     // BIT_CLEAR(DDRB,BUTTON_PIN); // INPUT MODE
@@ -42,3 +50,13 @@ int main(void){
     }
     return 0;
 }
+
+// Hederlige Harrys Bilar:
+
+// Betalat 5000. Vill slumpmässigt visa en av tre meddelanden
+
+// "Köp bil hos Harry"  (scroll)
+
+// "En god bilaffär (för Harry!)" text
+
+// "Hederlige Harrys Bilar" text (blinkande)
