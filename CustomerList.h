@@ -3,20 +3,23 @@ struct Customer{
     char message[32];
 };
 
-class CustomerList {    
-  private: 
-  Customer customerList[10]; 
+class CustomerList {  
+  
+private: 
+    Customer customerList[10]; 
     int customerCount = 0;
     int totalPayment = 0;
+
 
   
 public: 
     int addCustomer(int payment, char *m);
+    int getCustomerCount();
 
-char* getMessage(int index);
+    char* getMessage(int index);
 
-int paidAmount(int index);
-    
-int getTotalPayment();
+    int getPaidAmount(int index);
+        
+    int getTotalPayment();
 };
 
