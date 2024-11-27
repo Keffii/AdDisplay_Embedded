@@ -136,7 +136,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x410
+.text           0x00000000      0x488
  *(.vectors)
  .vectors       0x00000000       0x68 C:/avr/bin/../lib/gcc/avr/14.1.0/../../../../avr/lib/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -231,50 +231,52 @@ END GROUP
                 0x000001f6                HD44780::Initialize()
                 0x0000031c                HD44780::HD44780()
                 0x0000031c                HD44780::HD44780()
- .text          0x0000032a       0x5e bin/debug/CustomerList.o
+ .text          0x0000032a       0xaa bin/debug/CustomerList.o
                 0x0000032a                CustomerList::addCustomer(int, char*)
-                0x00000372                CustomerList::getMessage(int)
- .text          0x00000388        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
- .text          0x00000388        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
- .text          0x00000388        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
-                0x00000388                        . = ALIGN (0x2)
+                0x0000039a                CustomerList::getMessage(int)
+                0x000003b0                CustomerList::paidAmount(int)
+                0x000003c8                CustomerList::getTotalPayment()
+ .text          0x000003d4        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
+ .text          0x000003d4        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
+ .text          0x000003d4        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
+                0x000003d4                        . = ALIGN (0x2)
  *(.text.*)
- .text.startup  0x00000388       0x76 bin/debug/main.o
-                0x00000388                main
+ .text.startup  0x000003d4       0xa2 bin/debug/main.o
+                0x000003d4                main
  .text.libgcc.mul
-                0x000003fe        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
+                0x00000476        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.div
-                0x000003fe        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x000003fe        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
+                0x00000476        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000476        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x000003fe        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
+                0x00000476        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x000003fe        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
+                0x00000476        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x000003fe        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
+                0x00000476        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x000003fe        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
+                0x00000476        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.mul
-                0x000003fe        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
+                0x00000476        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.div
-                0x000003fe        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x000003fe        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
+                0x00000476        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000476        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.prologue
-                0x000003fe        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
+                0x00000476        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.builtins
-                0x000003fe        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
+                0x00000476        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.fmul
-                0x000003fe        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
+                0x00000476        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.fixed
-                0x000003fe        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
+                0x00000476        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
  .text.avr-libc
-                0x000003fe        0xe C:/avr/bin/../lib/gcc/avr/14.1.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
-                0x000003fe                strcpy
-                0x0000040c                        . = ALIGN (0x2)
+                0x00000476        0xe C:/avr/bin/../lib/gcc/avr/14.1.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
+                0x00000476                strcpy
+                0x00000484                        . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000040c        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
-                0x0000040c                _exit
-                0x0000040c                exit
+ .fini9         0x00000484        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
+                0x00000484                _exit
+                0x00000484                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -293,17 +295,17 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000040c        0x4 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000484        0x4 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
  *(.hightext)
  *(.hightext*)
  *(.progmemx.*)
-                0x00000410                        . = ALIGN (0x2)
+                0x00000488                        . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
-                0x00000410                        _etext = .
+                0x00000488                        _etext = .
 
-.data           0x00800100       0x2e load address 0x00000410
+.data           0x00800100       0x98 load address 0x00000488
                 0x00800100                        PROVIDE (__data_start = .)
  *(.data)
  .data          0x00800100        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/../../../../avr/lib/avr5/crtatmega328p.o
@@ -319,37 +321,36 @@ END GROUP
  .rodata        0x00800100       0x18 bin/debug/lcd.o
  *(.rodata*)
  .rodata.str1.1
-                0x00800118       0x15 bin/debug/main.o
-                                  0xc (size before relaxing)
+                0x00800118       0x80 bin/debug/main.o
+                                 0x77 (size before relaxing)
  .rodata.str1.1
-                0x0080012d        0x9 bin/debug/lcd.o
+                0x00800198        0x9 bin/debug/lcd.o
  *(.gnu.linkonce.r*)
-                0x00800136                        . = ALIGN (0x2)
- *fill*         0x0080012d        0x1 
-                0x0080012e                        _edata = .
-                0x0080012e                        PROVIDE (__data_end = .)
+                0x008001a2                        . = ALIGN (0x2)
+                0x00800198                        _edata = .
+                0x00800198                        PROVIDE (__data_end = .)
 
-.bss            0x0080012e        0x0
+.bss            0x00800198        0x0
                 [!provide]                        PROVIDE (__bss_start = .)
  *(.bss)
- .bss           0x0080012e        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/../../../../avr/lib/avr5/crtatmega328p.o
- .bss           0x0080012e        0x0 bin/debug/main.o
- .bss           0x0080012e        0x0 bin/debug/lcd.o
- .bss           0x0080012e        0x0 bin/debug/CustomerList.o
- .bss           0x0080012e        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
- .bss           0x0080012e        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
- .bss           0x0080012e        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
+ .bss           0x00800198        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/../../../../avr/lib/avr5/crtatmega328p.o
+ .bss           0x00800198        0x0 bin/debug/main.o
+ .bss           0x00800198        0x0 bin/debug/lcd.o
+ .bss           0x00800198        0x0 bin/debug/CustomerList.o
+ .bss           0x00800198        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_exit.o)
+ .bss           0x00800198        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800198        0x0 C:/avr/bin/../lib/gcc/avr/14.1.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
  *(.bss*)
  *(COMMON)
                 [!provide]                        PROVIDE (__bss_end = .)
-                0x00000410                        __data_load_start = LOADADDR (.data)
-                0x0000043e                        __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000488                        __data_load_start = LOADADDR (.data)
+                0x00000520                        __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080012e        0x0
+.noinit         0x00800198        0x0
                 [!provide]                        PROVIDE (__noinit_start = .)
  *(.noinit .noinit.* .gnu.linkonce.n.*)
                 [!provide]                        PROVIDE (__noinit_end = .)
-                0x0080012e                        _end = .
+                0x00800198                        _end = .
                 [!provide]                        PROVIDE (__heap_start = .)
                 [!provide]                        PROVIDE (__flmap_init_label = DEFINED (__flmap_noinit_start)?__flmap_noinit_start:0x0)
                 [!provide]                        PROVIDE (__flmap = DEFINED (__flmap)?__flmap:0x0)

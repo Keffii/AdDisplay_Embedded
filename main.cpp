@@ -24,7 +24,6 @@
 
 int main(void){
     HD44780 lcd;
-
     lcd.Initialize(); // Initialize the LCD
     lcd.Clear();      // Clear the LCD
 
