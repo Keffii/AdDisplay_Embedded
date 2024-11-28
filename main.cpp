@@ -28,10 +28,10 @@ int main(void){
     lcd.Clear();      // Clear the LCD
 
     CustomerList cl;
-    cl.addCustomer(5000, "En god bilaffär (för Harry!)");
-    cl.addCustomer(3000, "Skynda innan Mårten ätit alla pajer");
+    cl.addCustomer(5000, "En god bilaffar (for Harry!)");
+    cl.addCustomer(3000, "Skynda Marten ater alla pajer");
     cl.addCustomer(1500, "Bygga svart? Ring Petter");
-    cl.addCustomer(4000, "Mysterier? Ring Långben");
+    cl.addCustomer(4000, "Mysterier? Ring Langben");
     lcd.WriteText(cl.getMessage(0));  // getMessage(index of customers)
     // lcd.GoTo(0, 1); // Go to the second line
     // lcd.WriteText((char *)"Skynda innan Mårten ätit alla pajer");
