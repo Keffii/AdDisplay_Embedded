@@ -27,4 +27,3 @@ int CustomerList::getTotalPayment(){
 int CustomerList::getCustomerCount(){
     return customerCount;
 }
-}
