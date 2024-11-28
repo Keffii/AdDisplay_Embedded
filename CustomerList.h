@@ -10,8 +10,6 @@ private:
     int customerCount = 0;
     int totalPayment = 0;
 
-
-  
 public: 
     int addCustomer(int payment, char *m);
     int getCustomerCount();
