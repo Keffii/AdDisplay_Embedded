@@ -3,7 +3,7 @@ struct Customer{
     char message[32];
 };
 
-class CustomerList {  
+class CustomerList{  
   
 private: 
     Customer customerList[10]; 
