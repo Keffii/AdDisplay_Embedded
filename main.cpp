@@ -1,6 +1,5 @@
 #include <avr/io.h>
 #include <util/delay.h>
-#include <stdlib.h> // För rand()
 #include "lcd.h"
 #include "CustomerList.h"
 
@@ -15,28 +14,47 @@ int main(void) {
     cl.addCustomer(1500, "Bygga svart? Ring Petter");
     cl.addCustomer(4000, "Mysterier? Ring Langben");
 
-    int numCustomers = cl.getNumberOfCustomers();
+    int numCustomers = cl.getCustomerCount();
+
+    // Skapa en array som representerar fördelningen av annonser baserat på betalning
+    int adOrder[10]; // Maximal kapacitet för kundlistan
+    int totalSlots = 0;
+
+    // Bygg en array för visningsordning baserat på betalning
+    for (int i = 0; i < numCustomers; i++) {
+        int slots = cl.getPaidAmount(i) / 1000; // För varje 1000 betalning, lägg till en "plats"
+        for (int j = 0; j < slots && totalSlots < 10; j++) {
+            adOrder[totalSlots++] = i;
+        }
+    }
+
+    // Enkel cyklisk visning av annonser utan upprepning
+    int currentIndex = 0;
     int lastIndex = -1; // Ingen annons visad ännu
 
     while (1) {
-        int currentIndex;
+        // Välj nästa annons
+        int currentAd = adOrder[currentIndex];
 
-        // Välj en ny annons som inte är samma som den senaste
-        do {
-            currentIndex = rand() % numCustomers; // Slumpa ett index
-        } while (currentIndex == lastIndex);
+        // Kontrollera att det inte är samma som den senaste annonsen
+        if (currentAd != lastIndex) {
+            // Visa annonsen
+            lcd.Clear();
+            lcd.WriteText(cl.getMessage(currentAd));
 
-        // Visa den valda annonsen
-        lcd.Clear();
-        lcd.WriteText(cl.getMessage(currentIndex));
+            // Uppdatera senaste visade index
+            lastIndex = currentAd;
 
-        // Uppdatera senaste visade annons
-        lastIndex = currentIndex;
+            // Gå till nästa index i ordningen
+            currentIndex = (currentIndex + 1) % totalSlots;
 
-        // Vänta innan nästa visning
-        _delay_ms(5000);
+            // Vänta innan nästa visning
+            _delay_ms(5000);
+        } else {
+            // Om samma, hoppa till nästa
+            currentIndex = (currentIndex + 1) % totalSlots;
+        }
     }
 
     return 0;
 }
-
