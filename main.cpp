@@ -12,7 +12,7 @@ int main(void){
     lcd.Initialize(); // Initialize the LCD
     lcd.Clear();      // Clear the LCD
 
-    lcd.WriteText((char *)"Hej hej");
+    lcd.WriteText((char *)"Hej hej");  
 
 int time(); 
 
