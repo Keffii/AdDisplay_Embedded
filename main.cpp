@@ -4,58 +4,59 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "lcd.h"
-#include "CustomerList.h"
-
-// https://wokwi.com/projects/383283130065573889
-
-// PORTB B (digital pin 8 to 13)
-// C (analog input pins)
-// PORTD D (digital pins 0 to 7)
-#define LED_PIN 2
-#define BUTTON_PIN 1
-
-#define BIT_SET(a, b) ((a) |= (1ULL << (b)))
-#define BIT_CLEAR(a,b) ((a) &= ~(1ULL<<(b)))
-#define BIT_FLIP(a,b) ((a) ^= (1ULL<<(b)))
-#define BIT_CHECK(a,b) (!!((a) & (1ULL<<(b)))) 
-
-
-#define BUTTON_IS_CLICKED(PINB,BUTTON_PIN) !BIT_CHECK(PINB,BUTTON_PIN)
+#include <time.h>
 
 int main(void){
     HD44780 lcd;
+
     lcd.Initialize(); // Initialize the LCD
     lcd.Clear();      // Clear the LCD
 
-    CustomerList cl;
-    cl.addCustomer(5000, "En god bilaffär (för Harry!)");
-    cl.addCustomer(3000, "Skynda innan Mårten ätit alla pajer");
-    cl.addCustomer(1500, "Bygga svart? Ring Petter");
-    cl.addCustomer(4000, "Mysterier? Ring Långben");
-    lcd.WriteText(cl.getMessage(0));  // getMessage(index of customers)
-    // lcd.GoTo(0, 1); // Go to the second line
-    // lcd.WriteText((char *)"Skynda innan Mårten ätit alla pajer");
+    lcd.WriteText((char *)"Hej hej");
 
-    // //Sätt till INPUT_PULLUP
-    // BIT_CLEAR(DDRB,BUTTON_PIN); // INPUT MODE
-    // BIT_SET(PORTB,BUTTON_PIN); 
+int time(); 
 
-    // DATA DIRECTION = avgör mode
-    // om output så skickar vi  1 eller 0 på motsvarande pinne på PORT
-    // om input så läser vi  1 eller 0 på motsvarande pinne på PIN
-    //bool blinking = false;
-    while(1){
-     
-    }
-    return 0;
+
+char customers[][20] = {"Customer A", "Customer B", "Customer C", "Customer D", "Customer E"};
+int numCustomers = sizeof(customers) / sizeof(customers[0]);  // Antal kunder i listan
+
+char latestCustomer[20] = "";  // Håller reda på den senaste kunden
+unsigned long lastTime = 0;  // För att hålla koll på senaste visningstid
+const unsigned long showTime = 20000;  // 20 sekunder (i millisekunder)
+
+void setup() {
+  // Starta seriell kommunikation
+  Serial.begin(9600);
+  randomSeed(analogRead(0));  // Initiera slumpgeneratorn med ett noise-värde från analog pin 0
+  Serial.println("Start customer display... ");
 }
 
-// Hederlige Harrys Bilar:
+void loop() {
+  // Kontrollera om 20 sekunder har gått
+  if (millis() - lastTime >= showTime) {
+    // Slumpa en ny kund, se till att det inte är samma kund som sist
+    char* selectedCustomer = randomCustomer();
 
-// Betalat 5000. Vill slumpmässigt visa en av tre meddelanden
+    // Visa den valda kunden i serialmonitor
+    Serial.println(selectedCustomer);
 
-// "Köp bil hos Harry"  (scroll)
+    // Uppdatera tiden för senaste visning
+    lastTime = millis();
+  }
+}
 
-// "En god bilaffär (för Harry!)" text
+char* randomCustomer() {
+  char* selectedCustomer;
+  // Slumpa en kund som inte är den senaste kunden
+  do {
+    int index = random(numCustomers);  // Slumpa ett index från kunder-listan
+    selectedCustomer = customers[index];  // Hämta kundens namn från listan
+  } while (strcmp(selectedCustomer, latestCustomer) == 0);  // Om det är samma kund som sist, välj en ny
 
-// "Hederlige Harrys Bilar" text (blinkande)
+  // Uppdatera den senaste kunden
+  strcpy(latestCustomer, selectedCustomer); 
+
+  return selectedCustomer;
+}
+}
+
