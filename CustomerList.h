@@ -1,3 +1,7 @@
+#ifndef __CUSTOMERLIST_H
+#define __CUSTOMERLIST_H
+
+
 struct Customer{            
     int paidAmount;
     char message[32];
@@ -21,3 +25,4 @@ public:
     int getTotalPayment();
 };
 
+#endif
