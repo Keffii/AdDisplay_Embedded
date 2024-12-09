@@ -21,7 +21,7 @@ int main(void) {
     int numCustomers = cl.getCustomerCount();
 
     // Skapa en array som representerar fördelningen av annonser baserat på betalning
-    char adOrder[27]; // Maximal kapacitet för kundlistan
+    char adOrder[27]; // Maximal kapacitet för kundlistan.
     int totalSlots = 0;
 
     // Bygg en array för visningsordning baserat på betalning
